@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css') }}">
+    <title>Blogz{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <a href="/blog"><h1>Blogz</h1></a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="/newpost">Add a Blog Entry</a>
+    </nav>
+    {% if session['username'] %}
+        <aside class="profile">
+            Welcome, {{ session['username'] }}!&nbsp;
+            <a href="/logout">Logout</a>
+        </aside>
+    {% else %}
+        <aside class="profile">
+            <a href="/login">Login</a>
+            &nbsp; | &nbsp;
+            <a href="/signup">Signup</a>
+        </aside>
+    {% endif %}
+    {% block content %} 
+    
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% if posts|length == 1 %}
+    {% block title %}
+    {% for post in posts %}
+        - {{ post.title }}
+    {% endfor %}
+    {% endblock %}
+{% endif %}
+
+{% block content %}
+
+{% if posts|length == 0 %}
+    <p>No posts yet...</p>
+{% else %}
+    {% for post in posts %}
+        <a href="./blog?id={{ post.id }}"><h2>{{ post.title }}</h2></a>
+        <p class="date">{{ post.date }}</p>
+        <a href="./blog?user-id={{ post.owner.id }}"><p class="author">{{ post.owner.username }}</p></a>
+        <p>{{ post.body }}</p>
+        <hr />
+    {% endfor %}
+    {% if prev_url %}
+    <a href="{{ prev_url }}">&lt;&lt;&lt;</a>&nbsp;
+    {% endif %}
+    {% for page in pagination %}
+        {% if page %}
+            {% if page != current_page %}
+                <a href="{{ url_for('blog', page=page) }}">{{ page }}</a>
+            {% else %}
+                <strong>{{ current_page }}</strong>
+            {% endif %}
+        {% else %}
+            <span>...</span>
+        {% endif %}
+    {% endfor %}
+    {% if next_url %}
+        &nbsp;<a href="{{ next_url }}">&gt;&gt;&gt;</a>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

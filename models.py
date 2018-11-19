@@ -1,4 +1,5 @@
 from app import db
+from hashutils import make_pw_hash, make_salt, check_pw_hash
 from datetime import datetime
 
 
