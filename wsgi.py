@@ -1,5 +1,7 @@
 from flask import Flask
-from app import app
+from flask_sqlalchemy import SQLAlchemy
+from app import app, db
+from models import User, Blog
 
 @app.route('/')
 def hello():
