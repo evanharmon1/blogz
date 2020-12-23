@@ -8,6 +8,14 @@ h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.no-underline {
+    text-decoration: none;
+}
+
+aside a {
+    text-decoration: none;
+}
+
 body {
     font-family: "Helvetica", sans-serif;
     background-color: black;
@@ -62,4 +70,8 @@ h3 {
     display: inline;
     float: right;
 
+}
+
+aside a {
+    color: turquoise;
 }

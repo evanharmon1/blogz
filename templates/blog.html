@@ -15,7 +15,7 @@
     <p>No posts yet...</p>
 {% else %}
     {% for post in posts %}
-        <a href="./blog?id={{ post.id }}"><h2>{{ post.title }}</h2></a>
+        <a class="no-underline" href="./blog?id={{ post.id }}"><h2>{{ post.title }}</h2></a>
         <p class="date">{{ post.date }}</p>
         <a href="./blog?user-id={{ post.owner.id }}"><p class="author">{{ post.owner.username }}</p></a>
         <p>{{ post.body }}</p>
